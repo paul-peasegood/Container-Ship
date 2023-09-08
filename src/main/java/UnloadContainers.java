@@ -2,17 +2,18 @@ import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class UnloadContainers {
 
 
 
-    public static void printContainers(Character[][] containers) {
+    public static void printContainers(ArrayList<Character[]> containers) {
         //print container arrangement
-        for (int i = containers.length - 1; i > 0; i--) {
-            for (int j = 0; j < containers[i].length; j++) {
+        for (int i = containers.size() - 1; i > 0; i--) {
+            for (int j = 0; j < containers.get(i).length; j++) {
                 //print value containers[i][j] in changing null into " " and surround with brackets
-                System.out.print("[" + (containers[i][j] == null ? " " : containers[i][j]) + "]");
+                System.out.print("[" + (containers.get(i)[j] == null ? " " : containers.get(i)[j]) + "]");
             }
             System.out.println();
         }
@@ -38,98 +39,19 @@ public class UnloadContainers {
 
         String instructions = System.getProperty("user.dir") + "/src/main/resources/data.txt";
 
-        //create a 2D array of containers with the above arrangement
-        Character[][] containers = {
-                {'S','J','S','T','O','M', 'D','!', 'H'},
-                {'L','O','C','W','D','J', 'W','Z', 'E'},
-                {'W','N','H','M','L','B', 'R','T', 'Q'},
-                {null, 'Q','L','W','S','V','N', 'F','N'},
-                {null,null,'J','L','D','L','J', 'H','B'},
-                {null,null,null,'G','H','H','M', 'N','E'},
-                {null,null,null,'B','Q','R', null,'D','T'},
-                {null,null,null,null,'A','L', null,'J',null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null},
-                {null,null,null,null,null,null, null,null,null}
+        ArrayList<Character[]> containersList = new ArrayList<>();
+        containersList.add(new Character[]{'S', 'J', 'S', 'T', 'O', 'M', 'D', '!', 'H'});
+        containersList.add(new Character[]{'L','O','C','W','D','J', 'W','Z', 'E'});
+        containersList.add(new Character[]{'W','N','H','M','L','B', 'R','T', 'Q'});
+        containersList.add(new Character[]{null, 'Q','L','W','S','V','N', 'F','N'});
+        containersList.add(new Character[]{null,null,'J','L','D','L','J', 'H','B'});
+        containersList.add(new Character[]{null,null,null,'G','H','H','M', 'N','E'});
+        containersList.add(new Character[]{null,null,null,'B','Q','R', null,'D','T'});
+        containersList.add(new Character[]{null,null,null,null,'A','L', null,'J',null});
+        containersList.add(new Character[]{null,null,null,null,null,null, null,null,null});
 
-        };
 
-        printContainers(containers);
+        printContainers(containersList);
 
         //loop over instructions var and print each line
         try (BufferedReader br = new BufferedReader(new FileReader(instructions))) {
@@ -153,29 +75,29 @@ public class UnloadContainers {
                 for (int i = 0; i < move; i++) {
                     //find the top create in the from column
                     int fromRow = 0;
-                    for (int j = 0; j < containers.length; j++) {
-                        if (containers[j][from] != null) {
+                    for (int j = 0; j < containersList.size(); j++) {
+                        if (containersList.get(j)[from] != null) {
                             fromRow = j;
                         }
                     }
-                    Character character = containers[fromRow][from];
-                    containers[fromRow][from] = null;
+                    Character character = containersList.get(fromRow)[from];
+                    containersList.get(fromRow)[from] = null;
                     //find the top empty space in the to column
                     int toRow = -1;
-                    for (int j = 0; j < containers.length; j++) {
-                        if (containers[j][to] == null) {
+                    for (int j = 0; j < containersList.size(); j++) {
+                        if (containersList.get(j)[to] == null) {
                             toRow = j;
                             break;
                         }
                     }
-                    containers[toRow][to] = character;
-                    //if toRow is -1, then the column is full, print error and exit
-                    if (toRow == -1) {
-                        System.out.println("Error: column " + (to + 1) + " is full");
-                        System.exit(1);
+                    if(toRow == -1) {
+                        containersList.add(new Character[]{null,null,null,null,null,null, null,null,null});
+                        toRow = containersList.size() - 1;
                     }
+                    containersList.get(toRow)[to] = character;
+                    //if toRow is -1, then the column is full, print error and exit
                 }
-                printContainers(containers);
+                printContainers(containersList);
             }
         }
     }

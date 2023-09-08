@@ -1,9 +1,9 @@
 THE ANSWER IS HJQTSONH!
 
 This is a brute force solution that takes each step and does it at a time and just keeps going until it finds the answer. It is not the most efficient solution but it works.(i think)
-
+Uses ArrayList<Character[]> containersList to enable dynamic number of rows while keeping a static number of columns.
 Things to work on:
-make the array dynamic somehow so that it can be used for any size ship. Right now its got loads of empty rows and still has a size limit. 
+*** DONE *** make the array dynamic somehow so that it can be used for any size ship. Right now its got loads of empty rows and still has a size limit. 
 Better way of identifying the empty rows/columns would make the code much more efficient.
 
 
