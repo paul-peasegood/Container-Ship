@@ -1,3 +1,12 @@
+THE ANSWER IS HJQTSONH!
+
+This is a brute force solution that takes each step and does it at a time and just keeps going until it finds the answer. It is not the most efficient solution but it works.(i think)
+
+Things to work on:
+make the array dynamic somehow so that it can be used for any size ship. Right now its got loads of empty rows and still has a size limit. 
+Better way of identifying the empty rows/columns would make the code much more efficient.
+
+
 # The-Great-Java-Code-Off
 
 •	Teams of 3-4 will have 2 hrs to solve the problem.
